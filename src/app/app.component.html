@@ -1,0 +1,30 @@
+<div id="ToDo">
+    <div class="container center">
+        <img class="logo " src="assets/img/ico-logo.png" alt="">
+        <p class="titulo">Frontend Test</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <input type="text" [(ngModel)]="tareaSeleccionada.nombre" value="" class="col-8 form-control" placeholder="Agrega una nueva tarea">
+            <button (click)="agregar()" class="btn btn-info col-4 form-control">Agregar</button>
+        </div>
+
+        <table class="col-12 table tablatodo">
+            <thead class="headtable">
+                <tr>
+                    <th scope="col">ToDo List by Iron Bit
+                        <img class="limpiar cursor" (click)="borrarToDo()" src="assets/img/recycle-bin.svg " alt=" "></th>
+                </tr>
+            </thead>
+            <tbody class="tbodyToDo " *ngIf="tareasArray.length===0 ">
+                <p class="registros ">No hay ToDo's, tomate un café!!</p>
+            </tbody>
+            <tbody class="thead-light ">
+                <tr *ngFor="let tareas of tareasArray " class="list-group-item list-group-item-action registros cursor ">
+                    {{tareas.nombre}}
+                    <img class="limpiar" (click)="borrar(tareas) " src="assets/img/remove.svg " alt=" ">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
